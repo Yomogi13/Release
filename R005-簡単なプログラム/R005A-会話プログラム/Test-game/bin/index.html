@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>簡単な会話プログラム</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .message {
+      margin-bottom: 20px;
+    }
+    .options {
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message" id="message">
+      <p>会話の回答の選択肢によって回答が変わります</p>
+    </div>
+    <div class="options" id="options">
+      <button onclick="handleChoice(1)">否定的な回答</button>
+      <button onclick="handleChoice(2)">肯定的な回答</button>
+      <button onclick="handleChoice(3)">中立的な回答</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
