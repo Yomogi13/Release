@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.buildship.ui.wizard.project.creation">
+		<item key="apply_working_sets" value="true"/>
+		<item key="use_default_location" value="true"/>
+		<item key="project_location" value="C:\Users\福井寿希也\OneDrive - セルプロモート株式会社\ドキュメント\work\Test-game\object-output"/>
+		<list key="arguments">
+			<item value="--init-script"/>
+			<item value="../.metadata/init.gradle"/>
+		</list>
+		<list key="working_sets">
+		</list>
+	</section>
+</section>

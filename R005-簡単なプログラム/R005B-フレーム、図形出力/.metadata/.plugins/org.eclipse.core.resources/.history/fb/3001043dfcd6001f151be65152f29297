@@ -1,0 +1,101 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class Test {
+	public static void main (String[] args)
+	{
+		Win win = new Win("Test Window", "Test Data");
+	}
+}
+
+/*******************/
+/* クラスWinの定義 */
+/*******************/
+class Win extends Frame {
+
+	String message;
+
+	/******************/
+	/* コンストラクタ */
+	/******************/
+	Win (String name, String data)
+	{
+					// Frameクラスのコンストラクタ（Windowのタイトルを引き渡す）
+		super(name);
+					// メッセージ
+		message = data;
+					// Windowの大きさ
+		setSize(450, 350);
+					// ウィンドウを表示
+		setVisible(true);
+					// イベントアダプタ
+		addWindowListener(new WinEnd());
+	}
+
+	/********/
+	/* 描画 */
+	/********/
+	public void paint (Graphics g)
+	{
+		int yoyu = 30;
+
+					// 直線（両端）
+		g.drawLine(10, yoyu+10, 60, yoyu+60);
+					// 正方形（左上，幅，高さ）
+		g.drawRect(70, yoyu+10, 50, 50);
+					// 塗りつぶした正方形（左上，幅，高さ）
+		g.fillRect(130, yoyu+10, 50, 50);
+					// 角をとった正方形（左上，幅，高さ，削除部分）
+		g.drawRoundRect(190, yoyu+10, 50, 50, 20, 20);
+					// 立体正方形（左上，幅，高さ，凹凸）
+		g.draw3DRect(250, yoyu+10, 50, 50, true);
+		g.draw3DRect(310, yoyu+10, 50, 50, false);
+					// 多角形（座標，点の数）
+		int x[] = {370, 420, 395, 370};
+		int y[] = {yoyu+10, yoyu+10, yoyu+60, yoyu+10};
+		int pt = x.length;
+		g.drawPolygon(x, y, pt);
+					// 円（左上，幅，高さ）
+		g.drawOval(10, yoyu+70, 50, 50);
+		g.fillOval(70, yoyu+70, 100, 50);
+					// 弧（左上，幅，高さ，始点と終点の角度）
+		g.drawArc(180, yoyu+70, 100, 50, 30, 200);
+					// フォントの設定（50ポイント，TimesRoman Bold）
+		Font f = new Font("TimesRoman", Font.BOLD, 50);
+		g.setFont(f);
+					// 文字列の表示（文字列と開始位置（左下））
+						// 文字色：黒
+		g.drawString(message, 10, yoyu+180);
+						// 文字色：青
+		Color c = new Color(0, 0, 255);
+		g.setColor(c);
+		g.drawString(message, 10, yoyu+240);
+						// 文字色：赤
+		g.setColor(Color.red);
+		g.drawString(message, 10, yoyu+300);
+					// イメージの描画
+		g.translate(300, yoyu+170);   // 原点の移動
+		Toolkit tool = getToolkit();
+		Image im = tool.getImage("fig0.gif");
+		g.drawImage(im, 0, 0, this);
+					// 領域のコピー
+		g.copyArea(0, 0, 50, 50, 10, 60);
+					// ペイントモードの変更
+		g.setColor(Color.yellow);
+		g.setPaintMode();   // 上書き
+		g.fillRect(-290, 60, 50, 50);
+		g.setXORMode(Color.blue);   // ＸＯＲ
+		g.fillRect(-230, 60, 50, 50);
+	}
+
+	/************/
+	/* 終了処理 */
+	/************/
+	class WinEnd extends WindowAdapter
+	{
+		public void windowClosing(WindowEvent e) {
+			System.exit(0);
+		}
+	}
+}
+		

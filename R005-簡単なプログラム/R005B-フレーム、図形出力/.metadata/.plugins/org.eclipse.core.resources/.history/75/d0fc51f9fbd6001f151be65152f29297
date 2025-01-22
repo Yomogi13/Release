@@ -1,0 +1,10 @@
+package pkg_graphic_rendition;
+
+public class Test_graphic_outpt {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+
+	}
+
+}

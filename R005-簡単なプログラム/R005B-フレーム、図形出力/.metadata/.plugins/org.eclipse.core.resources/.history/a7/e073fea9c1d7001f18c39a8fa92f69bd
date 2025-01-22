@@ -1,0 +1,15 @@
+package pkg_graphic_rendition;
+
+import java.awt.*;
+
+public class Test_graphic_1 {
+	public static void main(string [] args) {
+		new FrameTest();
+	}
+	FrameTest() {
+		super("FrameTest");
+		setSize(200,100);
+		show();
+	}
+
+}
